@@ -8,11 +8,24 @@ import { LoginService } from '../login.service';
 })
 export class HomeComponent implements OnInit {
 
+  doctorEnable : boolean = false;
+  patientEnable : boolean = false;
+
   constructor(private loginService : LoginService) { 
-      console.log(loginService.getUsername());
+      console.log(this.loginService.getUsername());
    }
 
   ngOnInit() {
+  }
+
+  doctor(){
+    this.doctorEnable = true;
+    this.patientEnable = false;
+  }
+
+  patient(){
+    this.patientEnable = true;
+    this.doctorEnable = false;
   }
 
 }

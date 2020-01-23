@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-
-  constructor() { }
+  @Input() users : any;
+  constructor(private router : Router) { }
 
   ngOnInit() {
+  }
+
+  navigateEdit(id){
+    this.router.navigate(["edit",id]);
   }
 
 }
