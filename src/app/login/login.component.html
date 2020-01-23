@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div ng-app="myApp" ng-controller="myController" class="container">
+    <form name="myForm">
+      <div class="login-container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" name="email" [(ngModel)]="user.username" required class="form-control">
+              <!-- <div ng-show="myForm.email.$error.email" class="error">Invalid email!</div> -->
+              <!-- <div ng-show="myForm.email.$error.required &amp;&amp; myForm.email.$touched" class="error">Required!</div> -->
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" name="pass" [(ngModel)]="user.password" required class="form-control">
+              <!-- <div *ngIf="showError" class="error">Required!</div> -->
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <button (click)="authenticate()" class="btn btn-success center-block">Login</button>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div *ngIf="showError" class="alert alert-danger">Wrong credentials!</div>
+            <!-- <div ng-show="showSuccess" class="alert alert-success">Login Successful!</div> -->
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- {{user.username}} -->
