@@ -30,8 +30,10 @@ export class UserService {
     });
     return observable;
   }
+  updatePatient(user){
+    console.log(user);
+    let observable = this.http.put<any>("http://localhost:8080/updatepatient",user);
+    return observable;
+  }
 
-  // getPatientById(){
-  //   return this.patient;
-  // }
 }

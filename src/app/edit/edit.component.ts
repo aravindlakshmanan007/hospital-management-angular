@@ -7,19 +7,25 @@ import { UserService } from '../user.service';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  user : any;
+  user: any;
   constructor(private route: ActivatedRoute, private userService: UserService) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get("id");
     console.log(id);
     let observable = this.userService.setPatientById(+id);
-    observable.subscribe((response)=>{
+    observable.subscribe((response) => {
       this.user = response;
       console.log(this.user);
     })
   }
-  updatePatient(){
-    
+  updatePatient() {
+    console.log(this.user);
+    let updatedUser = this.user.data;
+    console.log(updatedUser);
+    let observable = this.userService.updatePatient(updatedUser);
+    observable.subscribe((response) => {
+      console.log(response);
+    })
   }
 }

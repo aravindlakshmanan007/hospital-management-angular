@@ -1,28 +1,50 @@
 <div class="row">
-    <div class="col-md-2">&nbsp;</div>
-    <div class="col-md-8">
-      <div class="row space-16">&nbsp;</div>
-      <div class="row" *ngFor="let user of users.data">
-        <div class="col-sm-4">
-          <div class="thumbnail">
-            <div class="caption text-center" onclick="location.href='https://flow.microsoft.com/en-us/connectors/shared_slack/slack/'">
-              <div class="position-relative">
-                <!-- <img src="https://az818438.vo.msecnd.net/icons/slack.png" style="width:72px;height:72px;" /> -->
-              </div>
-              <h4 id="thumbnail-label"><a href="https://flow.microsoft.com/en-us/connectors/shared_slack/slack/" target="_blank">{{user.userFirstname}}</a></h4>
-              <!-- <p><i class="glyphicon glyphicon-user light-red lighter bigger-120"></i>&nbsp;Auditor</p> -->
-              <div class="thumbnail-description smaller">This card contains the specific information about the patient or doctor and their personel information for the management use</div>
+  <div class="col-md-1">&nbsp;</div>
+  <div class="col-md-8">
+    <div class="row space-16">&nbsp;</div>
+    <div class="row">
+      <div class="col-sm-4" *ngFor="let user of users.data">
+        <div class="thumbnail">
+          <div class="caption text-center"
+            onclick="location.href='https://flow.microsoft.com/en-us/connectors/shared_slack/slack/'">
+            <div class="position-relative">
+              <!-- <img src="https://az818438.vo.msecnd.net/icons/slack.png" style="width:72px;height:72px;" /> -->
             </div>
-            <div class="caption card-footer text-center">
-              <ul class="list-inline">
-                <!-- <li><i class="people lighter"></i>&nbsp;7 Active Users</li> -->
-                <!-- <li></li> -->
-                <li><i class="glyphicon glyphicon-envelope lighter"></i><a (click)="navigateEdit(user.pkUserId)">&nbsp;Edit</a></li>
-              </ul>
-            </div>
+            <h4 id="thumbnail-label"><a href="https://flow.microsoft.com/en-us/connectors/shared_slack/slack/"
+                target="_blank">{{user.userFirstname}} {{user.userLastname}}</a></h4>
+            <!-- <p><i class="glyphicon glyphicon-user light-red lighter bigger-120"></i>&nbsp;Auditor</p> -->
+            <!-- <div class="thumbnail-description smaller">This card contains the specific information about the patient or
+              doctor and their personel information for the management use</div> -->
+            <table class="thumbnail-description smaller text-left">
+              <tr>
+                <td>Email  </td>
+                <td>: {{user.userEmail}}</td>
+              </tr>
+              <tr>
+                <td>Street  </td>
+                <td>: {{user.userStreet}}</td>
+              </tr>
+              <tr>
+                <td>City  </td>
+                <td>: {{user.userCity}}</td>
+              </tr>
+              <tr>
+                <td>State  </td>
+                <td>: {{user.userState}}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="caption card-footer text-center">
+            <ul class="list-inline">
+              <li><i class="glyphicon glyphicon-trash"></i><a>&nbsp;Delete</a></li>
+              <!-- <li></li> -->
+              <li><i class="glyphicon glyphicon-envelope lighter"></i><a
+                  (click)="navigateEdit(user.pkUserId)">&nbsp;Edit</a></li>
+            </ul>
           </div>
         </div>
       </div>
-      <div class="col-md-2">&nbsp;</div>
     </div>
+    <div class="col-md-1">&nbsp;</div>
   </div>
+</div>
