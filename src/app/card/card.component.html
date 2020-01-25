@@ -17,34 +17,45 @@
               doctor and their personel information for the management use</div> -->
             <table class="thumbnail-description smaller text-left">
               <tr>
-                <td>Email  </td>
+                <td>Email </td>
                 <td>: {{user.userEmail}}</td>
               </tr>
               <tr>
-                <td>Street  </td>
+                <td>Street </td>
                 <td>: {{user.userStreet}}</td>
               </tr>
               <tr>
-                <td>City  </td>
+                <td>City </td>
                 <td>: {{user.userCity}}</td>
               </tr>
               <tr>
-                <td>State  </td>
+                <td>State </td>
                 <td>: {{user.userState}}</td>
+              </tr>
+              <tr>
+                <td>Phone</td>
+                <td>: {{user.userPhonenumber}}</td>
               </tr>
             </table>
           </div>
           <div class="caption card-footer text-center">
             <ul class="list-inline">
-              <li><i class="glyphicon glyphicon-trash"></i><a>&nbsp;Delete</a></li>
+              <li><i class="glyphicon glyphicon-trash"></i><a
+                  (click)="deleteUser(user.pkUserId,user.fkRoleId)">&nbsp;Delete</a></li>
               <!-- <li></li> -->
               <li><i class="glyphicon glyphicon-envelope lighter"></i><a
-                  (click)="navigateEdit(user.pkUserId)">&nbsp;Edit</a></li>
+                  (click)="navigateEdit(user.pkUserId,user.fkRoleId)">&nbsp;Edit</a></li>
             </ul>
           </div>
         </div>
       </div>
     </div>
     <div class="col-md-1">&nbsp;</div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div *ngIf="showError" class="alert alert-danger text-center">Delete Failed</div>
+    <div *ngIf="showSuccess" class="alert alert-success text-center">Successful!y Deleted!!!Refresh the Page</div>
   </div>
 </div>

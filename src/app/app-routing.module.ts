@@ -8,7 +8,7 @@ import { EditComponent } from './edit/edit.component';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: HomeComponent },
-  { path : 'edit/:id' , component : EditComponent}
+  { path : 'edit/:id/:role' , component : EditComponent}
 ];
 
 @NgModule({
