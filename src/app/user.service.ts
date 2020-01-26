@@ -50,4 +50,18 @@ export class UserService {
     let observable = this.http.put<any>("http://localhost:8080/updatedoctor", user);
     return observable;
   }
+
+  deleteDoctor(userId): Observable<any>{
+    console.log(userId);
+    let observable = this.http.put<any>("http://localhost:8080/deletedoctor",{
+      "pkUserId" : userId
+    })
+    return observable;
+  }
+
+  createPatient(patient): Observable<any>{
+    console.log(patient);
+    let observable = this.http.post<any>("http://localhost:8080/createpatient",patient);
+    return observable;
+  }
 }

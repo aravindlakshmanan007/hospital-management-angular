@@ -1,5 +1,5 @@
 export class user {
-    public pkUserId: number;
+    pkUserId: number;
     userUsername: String;
     userPassword: String;
     userEmail: String;
@@ -14,5 +14,7 @@ export class user {
     userUpdatedOn: String;
     fkRoleId: number;
     userAge: number;
-    pkDoctorId: number;
+    patientHeight: number;
+    patientWeight: number;
+    patientBloodGroup: String;
 }

@@ -10,13 +10,13 @@ import { UserService } from '../user.service';
 export class CardComponent implements OnInit {
   @Input() users: any;
   showError: boolean = false;
-  showSuccess : boolean = false;
+  showSuccess: boolean = false;
   constructor(private router: Router, private userService: UserService) { }
   ngOnInit() {
   }
 
-  navigateEdit(userId,roleId) {
-    this.router.navigate(["edit", userId,roleId]);
+  navigateEdit(userId, roleId) {
+    this.router.navigate(["edit", userId, roleId]);
   }
 
   deleteUser(userId, roleId) {
@@ -30,6 +30,12 @@ export class CardComponent implements OnInit {
       this.showSuccess = true;
     } else if (roleId == 3) {
       console.log(userId);
+      let observable = this.userService.deleteDoctor(userId);
+      observable.subscribe((response) =>
+        console.log(response)
+      )
+      this.showError = false;
+      this.showSuccess = true;
     }
   }
 

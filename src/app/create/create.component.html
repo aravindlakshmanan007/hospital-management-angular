@@ -1,0 +1,69 @@
+<app-header></app-header>
+<h4 class="form-text text-center">Create Patient</h4><br>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Username</label>
+            <input type="text" class="form-control" placeholder="Username" [(ngModel)]="user.userUsername">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Firstname</label>
+            <input type="text" class="form-control" placeholder="Firstname" [(ngModel)]="user.userFirstname">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone -->
+            <!-- else.</small> -->
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Age</label>
+            <input type="text" class="form-control" placeholder="Age" [(ngModel)]="user.userAge">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">PhoneNumber</label>
+            <input type="text" class="form-control" placeholder="PhoneNumber" [(ngModel)]="user.userPhonenumber">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">City</label>
+            <input type="text" class="form-control" placeholder="City" [(ngModel)]="user.userCity">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Patient Height</label>
+            <input type="text" class="form-control" placeholder="Patient Height" [(ngModel)]="user.patientHeight">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Patient Blood Group</label>
+            <input type="text" class="form-control" placeholder="Patient BloodGroup" [(ngModel)]="user.patientBloodGroup">
+        </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Password</label>
+            <input type="password" class="form-control" aria-describedby="emailHelp" placeholder="Password"
+                [(ngModel)]="user.userPassword">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Lastname</label>
+            <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Lastname"
+                [(ngModel)]="user.userLastname">
+            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone -->
+            <!-- else.</small> -->
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Email</label>
+            <input type="email" class="form-control" placeholder="Email" [(ngModel)]="user.userEmail">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Street</label>
+            <input type="text" class="form-control" placeholder="Street" [(ngModel)]="user.userStreet">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">State</label>
+            <input type="text" class="form-control" placeholder="State" [(ngModel)]="user.userState">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Patient Weight</label>
+            <input type="text" class="form-control" placeholder="Patient Weight" [(ngModel)]="user.patientWeight">
+        </div>
+    </div>
+</div><br><br>
+<button type="submit" class="btn btn-primary center-block" (click)="updateUser(2,user)">Submit</button>
