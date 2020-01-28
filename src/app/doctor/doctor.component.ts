@@ -21,4 +21,16 @@ export class DoctorComponent implements OnInit {
   ngOnInit() {
   }
 
+  delete(userId) {
+    console.log(userId);
+    let observable = this.userService.deleteDoctor(userId);
+    observable.subscribe((response) =>
+      console.log(response)
+    )
+    observable = this.userService.setDoctor();
+    observable.subscribe((response) =>
+      this.user = response
+    )
+  }
+
 }

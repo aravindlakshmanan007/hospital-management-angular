@@ -1,48 +1,76 @@
 <app-header></app-header>
+<p>{{profileForm.value | json}}{{profileForm.status}}</p>
 <h4 class="form-text ">Update Details</h4><br>
 <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-4">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Firstname</label>
-            <input type="text" class="form-control" placeholder="Firstname" [(ngModel)]="user.data.userFirstname">
-            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone -->
-            <!-- else.</small> -->
+    <form [formGroup]="profileForm">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Firstname</label>
+                <input type="text" class="form-control" placeholder="Firstname" formControlName="firstName">
+                <div *ngIf="firstName.invalid" class="alert alert-danger">
+                    <label *ngIf="firstName.errors.required">*Firstname is required</label>
+                </div>
+                <!-- [(ngModel)]="user.data.userFirstname"> -->
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone -->
+                <!-- else.</small> -->
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Age</label>
+                <input type="text" class="form-control" placeholder="Age" formControlName="age">
+                <!-- [ngModelOptions]="{standalone: true}"    [(ngModel)]="user.data.userAge"> -->
+                <div *ngIf="age.invalid" class="alert alert-danger">
+                    <label *ngIf="age.errors.min" appHighlight>Minimum age should be 18</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">PhoneNumber</label>
+                <input type="text" class="form-control" placeholder="PhoneNumber" formControlName="phoneNumber">
+                <!-- [ngModelOptions]="{standalone: true}"[(ngModel)]="user.data.userPhonenumber"> -->
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">City</label>
+                <input type="text" class="form-control" placeholder="City" formControlName="city">
+                <!-- [ngModelOptions]="{standalone: true}"    [(ngModel)]="user.data.userCity"> -->
+            </div>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Age</label>
-            <input type="text" class="form-control" placeholder="Age" [(ngModel)]="user.data.userAge">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Lastname</label>
+                <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Lastname"
+                    formControlName="lastName">
+                    <div class="alert alert-danger" *ngIf="lastName.invalid">
+                        <label>This format of lastname is not allowed</label>
+                    </div>
+                <!-- [(ngModel)]="user.data.userLastname"> -->
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone -->
+                <!-- else.</small> -->
+            </div>
+            <div class="form-group" formArrayName="email">
+                <label for="exampleInputPassword1"> Email </label><a (click)="addemail()">
+                    <span class="glyphicon glyphicon-plus"> </span>
+                </a>
+                <div *ngFor="let address of email.controls; let i=index">
+                    <input type="email" class="form-control" placeholder="Email" [formControlName]="i">
+                    <!-- [ngModelOptions]="{standalone: true}"    [(ngModel)]="user.data.userEmail"> -->
+                </div>
+                <div *ngIf="email.invalid" class="alert alert-danger"> 
+                    <label *ngIf="email.errors.email" appHighlight>Required Email format</label>
+                    <label *ngIf="email.errors.forbiddenName">We accept only @gmail.com</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Street</label>
+                <input type="text" class="form-control" placeholder="Street" formControlName="street">
+                <!-- [ngModelOptions]="{standalone: true}"    [(ngModel)]="user.data.userStreet"> -->
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">State</label>
+                <input type="text" class="form-control" placeholder="State" formControlName="state">
+                <!-- [ngModelOptions]="{standalone: true}"    [(ngModel)]="user.data.userState"> -->
+            </div>
         </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">PhoneNumber</label>
-            <input type="text" class="form-control" placeholder="PhoneNumber" [(ngModel)]="user.data.userPhonenumber">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">City</label>
-            <input type="text" class="form-control" placeholder="City" [(ngModel)]="user.data.userCity">
-        </div>
-    </div>
-    <div class="col-md-1"></div>
-    <div class="col-md-4">
-        <div class="form-group">
-            <label for="exampleInputEmail1">Lastname</label>
-            <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Lastname"
-                [(ngModel)]="user.data.userLastname">
-            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone -->
-            <!-- else.</small> -->
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Email</label>
-            <input type="email" class="form-control" placeholder="Email" [(ngModel)]="user.data.userEmail">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">Street</label>
-            <input type="text" class="form-control" placeholder="Street" [(ngModel)]="user.data.userStreet">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputPassword1">State</label>
-            <input type="text" class="form-control" placeholder="State" [(ngModel)]="user.data.userState">
-        </div>
-    </div>
+    </form>
 </div><br><br>
 <button type="submit" class="btn btn-primary center-block" (click)="updateUser(user.data.fkRoleId)">Submit</button>

@@ -1,4 +1,4 @@
 <h4>Doctor Details</h4>
 <div *ngIf="isLoaded">
-    <app-card [users]="user"></app-card>
+    <app-card [users]="user" (userId)="delete($event)"></app-card>
 </div>

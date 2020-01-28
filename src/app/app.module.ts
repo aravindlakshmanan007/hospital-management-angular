@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -12,6 +12,8 @@ import { DoctorComponent } from './doctor/doctor.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EditComponent } from './edit/edit.component';
 import { CreateComponent } from './create/create.component';
+import { HighlightDirective } from './highlight.directive';
+
 
 @NgModule({
   declarations: [
@@ -23,13 +25,16 @@ import { CreateComponent } from './create/create.component';
     PatientComponent,
     DoctorComponent,
     EditComponent,
-    CreateComponent
+    CreateComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    ReactiveFormsModule,
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

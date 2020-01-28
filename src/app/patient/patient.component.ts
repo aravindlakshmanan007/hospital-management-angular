@@ -13,7 +13,7 @@ export class PatientComponent implements OnInit {
 
   constructor(private userService: UserService) {
     let observable = this.userService.setPatient();
-    observable.subscribe((response)=>
+    observable.subscribe((response) =>
       this.patient = response
     )
     this.isLoaded = true
@@ -22,6 +22,18 @@ export class PatientComponent implements OnInit {
   ngOnInit() {
     console.log(this.patient);
 
+  }
+
+  delete(userId) {
+    let observable = this.userService.deletePatient(userId);
+    observable.subscribe((response) =>
+      console.log(response)
+    )
+    observable = this.userService.setPatient();
+    observable.subscribe((response) =>
+      this.patient = response
+    )
+    this.isLoaded = true
   }
 
 }
